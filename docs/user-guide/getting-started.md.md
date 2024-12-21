@@ -25,7 +25,10 @@ Athena 最少只需要设置以下配置项即可工作：
 
 这是你的 Bot 使用的主要大模型的 API 配置项。你的 Bot 发言主要与此配置中设置的模型有关。
 
-`API.APIList[]` 是一个列表。你需要至少一个
+`API.APIList[]` 是一个列表。你需要至少一个列表项。对于每一个列表项：
+
+# API 返回格式类型，可选 OpenAI / Cloudflare
+  - APIType: OpenAI          # API 基础 URL，此处以 OpenAI 为例          # 若你是 Cloudflare， 请填入 https://api.cloudflare.com/client/v4          BaseURL: https://api.openai.com/          # 你的 API 令牌          APIKey: sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXX          # 模型          AIModel: gpt-4o-mini          # 若你正在使用 Cloudflare，不要忘记下面这个配置          # Cloudflare Account ID，若不清楚可以看看你 Cloudflare 控制台的 URL          UID:　xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNzA3NzIxNF19
+eyJoaXN0b3J5IjpbLTg0MDYwNDkyMV19
 -->
