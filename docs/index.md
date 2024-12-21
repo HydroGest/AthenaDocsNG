@@ -10,6 +10,3 @@ Athena （原名 YesImBot）是一个 Koishi 插件，旨在让人工智能大�
 - 沉浸感知：大模型感知当前的背景信息，如日期时间、群聊名字，At 消息等。
 - 防提示注入：Athena 将会屏蔽可能对大模型进行注入的消息，防止机器人被他人破坏。
 - Prompt 自动获取：无需自行配制，多种优质 Prompt 开箱即用。
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjYxNTUyOTddfQ==
--->
