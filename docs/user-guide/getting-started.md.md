@@ -21,6 +21,11 @@ Athena 最少只需要设置以下配置项即可工作：
 
 - `MemorySlot.SlotContains` ：记忆槽位，每一个记忆槽位都可以填入一个或多个会话 ID（群号或 `private:私聊账号`），在一个槽位中的会话 ID 会共享上下文。你可以每行填入一个群号，Bot 将会在这些聊群中发言。
 
+### LLM API 设置
+
+这是你的 Bot 使用的主要大模型的 API 配置项。你的 Bot 发言主要与此配置中设置的模型有关。
+
+`API.APIList[]` 是一个列表。你需要至少一个
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0NjkwODk5Ml19
+eyJoaXN0b3J5IjpbMTgzNzA3NzIxNF19
 -->
