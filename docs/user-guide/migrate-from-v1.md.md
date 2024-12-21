@@ -15,7 +15,10 @@ V2 版本几乎重构了整个插件，但边担心，从旧版本迁移并不�
 
 版本升级时，Koishi 不会自动帮你安装新增的依赖。因此请前往 Koishi 控制台中的 "依赖管理" 页面，点击右上角的加号手动输入以上依赖进行安装。
 
+## 大功告成
+
+至此，你的 Athena 迁移完毕，一起共同享受 V2 的新特性吧！
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMDM1NzY5OF19
+eyJoaXN0b3J5IjpbLTE1MzIxNjQ3MDldfQ==
 -->
