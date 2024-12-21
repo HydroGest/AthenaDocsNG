@@ -7,9 +7,13 @@
 
 如果你并非 Onebot 用户，推荐使用 onebot 适配器，参阅 [NapCat 官方文档](https://napneko.pages.dev/) 或 [LLOneBot 官方文档](https://llonebot.github.io/zh-CN/)。**永远不要使用 QQ 官方适配器！**
 
-## 安装
+## 安装插件
 
-前往 Koishi 控制台的插件市场，搜索 `yesimbot`，安装并。
+前往 Koishi 控制台的插件市场，搜索 `yesimbot`，点击安装。
+
+## 配置
+
+A
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjU4NDEyODFdfQ==
+eyJoaXN0b3J5IjpbOTkxMTE5ODc3XX0=
 -->
