@@ -13,7 +13,11 @@
 
 ## 配置
 
-A
+Athena 最少只需要设置以下配置项即可工作：
+
+### 记忆槽位设置
+
+这
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkxMTE5ODc3XX0=
+eyJoaXN0b3J5IjpbMTAzMTczNzgzNF19
 -->
