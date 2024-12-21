@@ -17,7 +17,9 @@ Athena 最少只需要设置以下配置项即可工作：
 
 ### 记忆槽位设置
 
-这
+这决定了你的 Bot 的记忆分区。
+
+`MemorySlot.SlotContains` ：记忆槽位，每一个记忆槽位都可以填入一个或多个会话 （群号或 `private:私聊账号`），在一个槽位中的会话 ID 会共享上下文。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMTczNzgzNF19
+eyJoaXN0b3J5IjpbLTEzMTgyNzc0MTVdfQ==
 -->
