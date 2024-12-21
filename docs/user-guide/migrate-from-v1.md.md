@@ -10,9 +10,12 @@ V2 版本几乎重构了整个插件，但边担心，从旧版本迁移并不�
 
 在 V2 中，我们新增了以下依赖：
 
-- `au
+- `async-mutex`
+- `bson`
+
+版本升级时，Koishi 不会自动帮你安装新增的依赖。因此请前往 Koishi 控制台中的 "依赖管理" 页面，点击右上角的加号手动输入以上依赖进行安装。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTA4MzUyXX0=
+eyJoaXN0b3J5IjpbMTQzMDM1NzY5OF19
 -->
