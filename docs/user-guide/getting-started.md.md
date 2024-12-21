@@ -35,9 +35,10 @@ Athena 最少只需要设置以下配置项即可工作：
 
 ## 开始体验
 
-现在，如果你的记忆槽位配置正确，那么如果你在你的设置过聊群中发言，插件设置页面
+现在，如果你的记忆槽位配置正确，那么如果你在你的设置过聊群中发言，插件设置页面将很快出现日志。继续发送消息，只到你的 Bot 回应。
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY2MjM4MTY1XX0=
+eyJoaXN0b3J5IjpbLTYwOTA0MTUyNl19
 -->
