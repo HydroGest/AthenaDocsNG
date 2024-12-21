@@ -2,7 +2,17 @@
 
 V2 版本几乎重构了整个插件，但边担心，从旧版本迁移并不困难。
 
-首先，确保你真正使用的
+## 先决条件
+
+首先，确保你的版本是 V1 中最新的 `1.7.6` 版本。如果不是，请升级到此版本。
+
+## 依赖
+
+在 V2 中，我们新增了以下依赖：
+
+- `au
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MzYyODc0NF19
+eyJoaXN0b3J5IjpbLTE2NTA4MzUyXX0=
 -->
