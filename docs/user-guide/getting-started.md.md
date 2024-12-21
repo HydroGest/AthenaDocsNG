@@ -6,6 +6,10 @@
 如果你需要从 v1 迁移，请参阅 [从 V1 迁移](migrate-from-v1)。
 
 如果你并非 Onebot 用户，推荐使用 onebot 适配器，参阅 [NapCat 官方文档](https://napneko.pages.dev/) 或 [LLOneBot 官方文档](https://llonebot.github.io/zh-CN/)。**永远不要使用 QQ 官方适配器！**
+
+## 安装前置服务
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1OTEwMzM0XX0=
+eyJoaXN0b3J5IjpbLTEzNDE5ODAzODNdfQ==
 -->
