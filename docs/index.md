@@ -4,7 +4,7 @@
 
 Athena （原名 YesImBot）是一个 Koishi 插件，旨在让人工智能大模型也能参与到群聊的讨论中。
 
-准备好开始旅途了吗，让我们 [快速上手](/user-guide/getting-started.md) 吧！
+准备好开始旅途了吗，让我们 [快速上手](/user-guide/getting-started) 吧！
 
 ## 特性
 - 轻松自定义：Bot 的名字、性格、情感，以及其他额外的消息都可以在插件配置中轻易修改。
@@ -13,5 +13,6 @@ Athena （原名 YesImBot）是一个 Koishi 插件，旨在让人工智能大�
 - 防提示注入：Athena 将会屏蔽可能对大模型进行注入的消息，防止机器人被他人破坏。
 - Prompt 自动获取：无需自行配制，多种优质 Prompt 开箱即用。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQwOTI5MTEzLC0xOTQxNzIyMjQ4XX0=
+eyJoaXN0b3J5IjpbLTE5NDE3MjIyNDgsLTE5NDE3MjIyNDhdfQ
+==
 -->
