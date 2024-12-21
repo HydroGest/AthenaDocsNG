@@ -27,8 +27,11 @@ Athena 最少只需要设置以下配置项即可工作：
 
 `API.APIList[]` 是一个列表。你需要至少一个列表项。对于每一个列表项：
 
-- `APIType`： API 返回格式类型（适配器类型），可选 OpenAI / Cloudflare / Ollama
-- `BaseURL`：API 基础 URL，若你是 `Custom` 类型，请填入 `https://api.openai.com/v1/chat/completions`。若你是 `Cloudflare`， 请填入 `https://api.cloudflare.com/client/v4`         BaseURL: https://api.openai.com/          # 你的 API 令牌          APIKey: sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXX          # 模型          AIModel: gpt-4o-mini          # 若你正在使用 Cloudflare，不要忘记下面这个配置          # Cloudflare Account ID，若不清楚可以看看你 Cloudflare 控制台的 URL          UID:　xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `APIType`： API 返回格式类型（适配器类型），可选 OpenAI / Cloudflare / Ollama。
+- `BaseURL`：API 基础 URL，若你是 `Custom` 类型，请填入 `https://api.openai.com/v1/chat/completions`；若你是 `Cloudflare`， 请填入 `https://api.cloudflare.com/client/v4` ，如果是 `OpenAI` 类型，填入 `https://api.openai.com`。
+- `APIKey`：你的 API 密钥。
+- `AIModel`：模型名称，例如 `gpt-4o-mini`          。
+- `UID`：当你是 `Cloudflare` 类型时才填写。 若你正在使用 Cloudflare，不要忘记这个配置。此处填 Cloudflare Account ID，若不清楚可以看看你 Cloudflare 控制台的 URL。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ4MjY1NTkzXX0=
+eyJoaXN0b3J5IjpbLTI5NTk4MDcxNV19
 -->
