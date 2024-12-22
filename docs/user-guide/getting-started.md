@@ -4,7 +4,9 @@
 
 如果你需要从 v1 迁移，请参阅 [从 V1 迁移](migrate-from-v1.md)。
 
-如果你并非 Onebot 用户，推荐使用 onebot 适配器，参阅 [NapCat 官方文档](https://napneko.pages.dev/) 或 [LLOneBot 官方文档](https://llonebot.github.io/zh-CN/)。**永远不要使用 QQ 官方适配器！**
+如果你并非 Onebot 用户，推荐使用 onebot 适配器，参阅 [NapCat 官方文档](https://napneko.pages.dev/) 或 [LLOneBot 官方文档](https://llonebot.github.io/zh-CN/)。
+
+**目前我们暂不支持 QQ 官方适配器。**
 
 ## 安装插件
 
@@ -18,7 +20,8 @@ Athena 最少只需要设置以下配置项即可工作：
 
 这决定了你的 Bot 的记忆分区。
 
-- `MemorySlot.SlotContains` ：记忆槽位，每一个记忆槽位都可以填入一个或多个会话 ID（群号或 `private:私聊账号`），在一个槽位中的会话 ID 会共享上下文。你可以每行填入一个群号，Bot 将会在这些聊群中发言。
+`MemorySlot.SlotContains` 
+:   记忆槽位，每一个记忆槽位都可以填入一个或多个会话 ID（群号或 `private:私聊账号`），在一个槽位中的会话 ID 会共享上下文。你可以每行填入一个群号，Bot 将会在这些聊群中发言。
 
 ### LLM API 设置
 
@@ -26,11 +29,24 @@ Athena 最少只需要设置以下配置项即可工作：
 
 `API.APIList[]` 是一个列表。你需要至少一个列表项。对于每一个列表项：
 
-- `APIType`： API 返回格式类型（适配器类型），可选 OpenAI / Cloudflare / Ollama。
-- `BaseURL`：API 基础 URL，若你是 `Custom` 类型，请填入 `https://api.openai.com/v1/chat/completions`；若你是 `Cloudflare`， 请填入 `https://api.cloudflare.com/client/v4` ；如果是 `OpenAI` 类型，填入 `https://api.openai.com`。
-- `APIKey`：你的 API 密钥。
-- `AIModel`：模型名称，例如 `gpt-4o-mini`。
-- `UID`：当你是 `Cloudflare` 类型时才填写。 若你正在使用 Cloudflare，不要忘记这个配置。此处填 Cloudflare Account ID，若不清楚可以看看你 Cloudflare 控制台的 URL。
+---
+
+`APIType`
+:   API 返回格式类型（适配器类型），可选 OpenAI / Cloudflare / Ollama。
+
+`BaseURL`
+:   API 基础 URL，若你是 `Custom` 类型，请填入 `https://api.openai.com/v1/chat/completions`；若你是 `Cloudflare`， 请填入 `https://api.cloudflare.com/client/v4`；如果是 `OpenAI` 类型，填入 `https://api.openai.com`。
+
+`APIKey`
+:   你的 API 密钥。
+
+`AIModel`
+:   模型名称，例如 `gpt-4o-mini`。
+
+`UID`
+:   当你是 `Cloudflare` 类型时才填写。 若你正在使用 Cloudflare，不要忘记这个配置。此处填 Cloudflare Account ID，若不清楚可以看看你 Cloudflare 控制台的 URL。
+
+---
 
 ## 开始体验
 
