@@ -1,1 +1,23 @@
-site_name: My Docs
+# Site
+site_name: Athena V2 文档
+site_url: https://mydomain.org/mysite
+
+# Repo
+repo_url: https://github.com/HydroGest/AthenaDocsNG
+repo_name: HydroGest/AthenaDocsNG
+edit_uri: edit/main/docs/
+
+# Theme
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+
+# Markdown Extensions
+markdown_extensions: 
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
