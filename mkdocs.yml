@@ -1,5 +1,5 @@
 # Site
-site_name: Athena V2 文档
+site_name: Athena 文档站
 site_url: https://mydomain.org/mysite
 
 # Repo
@@ -13,6 +13,21 @@ theme:
   features:
     - navigation.instant
     - navigation.instant.progress
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 切换到浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 跟随系统
 
 # Markdown Extensions
 markdown_extensions: 
