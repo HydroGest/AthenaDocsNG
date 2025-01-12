@@ -8,17 +8,17 @@ repo_name: HydroGest/AthenaDocsNG
 edit_uri: edit/main/docs/
 
 nav:
-  - 首页: /index.md
+  - 首页: /index
   - 用户手册: 
-    - 快速上手: /user-guide/getting-started.md
-    - 从 V1 迁移: /user-guide/migrate-from-v1.md
+    - 快速上手: /user-guide/getting-started
+    - 从 V1 迁移: /user-guide/migrate-from-v1
     - 配置: 
-      - 记忆槽位设置: /user-guide/configuration/memory-slot.md
-      - 主 API 配置: /user-guide/configuration/main-api.md
-      - Prompt 配置: /user-guide/configuration/prompt.md
-      - Bot 设定: /user-guide/configuration/bot-settings.md
-      - 验证器设置: /user-guide/configuration/verifier.md
-    - 教程: /index.md
+      - 记忆槽位设置: /user-guide/configuration/memory-slot
+      - 主 API 配置: /user-guide/configuration/main-api
+      - Prompt 配置: /user-guide/configuration/prompt
+      - Bot 设定: /user-guide/configuration/bot-settings
+      - 验证器设置: /user-guide/configuration/verifier
+    - 教程: /index
      
 
 # Theme
