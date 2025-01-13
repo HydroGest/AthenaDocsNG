@@ -32,9 +32,9 @@ Athena 依赖大模型 API 来工作。Athena 配置中提供了 **LLM API 相�
 
 ### 1. `API.APIList.APIType`
 
-API 的类型。可选项：`OpenAI`、`Cloudflare`、`Ollama`、`Gemini` 以及 `Custom URL`。当选择 `OpenAI` 以及 `Custom` 时，使用 OpenAI 的 API 格式。此两者的区别在于 URL 模板。
+API 的类型。可选项：`OpenAI`、`Cloudflare`、`Ollama`、`Gemini` 以及 `Custom URL`。当选择 `OpenAI` 以及 `Custom` 时，使用 OpenAI 的 API 格式。此两者的区别仅在于 URL 模板。
 
-当选择 `OpenAI` 时，API 的请求地址为 `${BaseURL}/v1/chat/completions/`，而当选择 `Custom` 时，API 的请求地址为 `${BaseURL}/`。
+当选择 `OpenAI` 时，API 的请求地址为 `${BaseURL}/v1/chat/completions`，而当选择 `Custom` 时，API 的请求地址为 `${BaseURL}`。
 
 此外，当选择 Cloudflare 时，API 的请求地址为 `${BaseURL}/accounts/${UID}/ai/run/${model}`。
 
@@ -42,7 +42,7 @@ API 的类型。可选项：`OpenAI`、`Cloudflare`、`Ollama`、`Gemini` 以及
 
 API 的基础 URL。以 GPTGOD 平台为例:
 
-- 当 `API.APIList.APIType` 选择 `OpenAI` 时，本项填写 `https://api.gptgod.online/`；
+- 当 `API.APIList.APIType` 选择 `OpenAI` 时，本项填写 `https://api.gptgod.online`；
 
 - 当 `API.APIList.APIType` 选择 `Custom` 时，本项填写 `https://api.gptgod.online/v1/chat/completions`。
 
@@ -61,15 +61,29 @@ sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ### 5. `API.APIList.AIModel`
 
-AI 模型名称。例如 `llama-3.1-405b`，具体请见相应 API 提供商的说明。特别地，如果你使用的是 Cloudflare AI，你的格式应类似如下字符串：`@cf/meta/llama-3-8b-instruct`。
+AI 模型名称。例如 `llama-3.1-405b`，具体请见相应 API 提供商的说明。特别地，如果你使用的是 Cloudflare AI，此处的格式应类似如下字符串：`@cf/meta/llama-3-8b-instruct`。
 
 ### 6. `API.APIList.Ability`
 
 模型支持的功能。可选：`原生工具调用`、`识图功能`以及`结构化输出`。当你不知道时，可不选。具体查询该模型的文档。
 
+#### 原生工具调用
+
+有些模型对调用外部工具功能 (function-call) 有专门的微调，来让模型更准确地识别可调用的工具和生成调用这些工具所需要的参数，这样的模型支持原生工具调用。
+
+对于不支持原生工具调用的模型，Athena 内置了一份 prompt 和相关的工具调用逻辑，以让不支持原生工具调用的模型也能够调用工具。
+
+#### 识图功能
+
+图文多模态模型 (multi-modal model) 本身就能够理解图片，而无需额外的图片描述服务。如果你使用的模型是图文多模态模型，那么你可以在图片查看器的相关配置 `ImageViewer.How` 中选择 `LLM API 自带的多模态能力` 以启用此多模态模型的原生识图功能。在这里勾选此项用于在 LLM API 负载均衡中标记此模型的能力，以便在轮到不支持识图功能的模型且图片查看器配置选择使用 `LLM API 自带的多模态能力` 时，Athena 能够自动选择使用图片描述服务。
+
+#### 结构化输出
+
+有些 API 支持 `response_format` 参数，用于强制 LLM 返回合法的 JSON 格式。如果你的 API 支持此参数，你可以在这里勾选 `结构化输出`，之后请求体中会包含此参数。这将大幅减少 LLM 返回的消息无法解析的可能。
+
 ### 其他配置
 
-当选择自部署的 Ollama 模型时，可自定义更多配置。详情请自行阅读模型文档。
+当选择自部署的 Ollama 服务时，可自定义更多配置，它们会在模型加载时被应用。详情请自行阅读 [llama.cpp](https://github.com/ggerganov/llama.cpp/blob/master/examples/main/README.md) 文档。
 
 ## 负载均衡
 

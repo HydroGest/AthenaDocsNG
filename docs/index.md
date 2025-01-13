@@ -13,7 +13,7 @@ Athena （原名 YesImBot）是一个 Koishi 插件，旨在让人工智能大�
 
     ---
 
-    Bot 的名字、性格、情感，以及其他额外的消息都可以在插件配置中轻易修改。
+    Bot 的名字、性格、情感，以及其他额外的信息都可以在插件配置中轻易修改。
 
 -   :material-scale-balance:{ .lg .middle } __负载均衡__
 

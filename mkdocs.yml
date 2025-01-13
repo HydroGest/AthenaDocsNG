@@ -15,6 +15,7 @@ nav:
     - 配置: 
       - 记忆槽位设置: /user-guide/configuration/memory-slot
       - 主 API 配置: /user-guide/configuration/main-api
+      - API 参数配置: /user-guide/configuration/parameters
       - Prompt 配置: /user-guide/configuration/prompt
       - Bot 设定: /user-guide/configuration/bot-settings
       - 验证器设置: /user-guide/configuration/verifier
@@ -48,8 +49,23 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - def_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - stylesheets/extra.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css

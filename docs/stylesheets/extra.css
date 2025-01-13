@@ -1,0 +1,17 @@
+.md-typeset .admonition.file-tree,
+.md-typeset details.file-tree {
+    border-left: .2rem solid #448aff;
+    background-color: rgba(68, 138, 255, .1);
+}
+
+.md-typeset .file-tree > .admonition-title,
+.md-typeset .file-tree > summary {
+    background-color: rgba(68, 138, 255, .1);
+    border-bottom: .1rem solid rgba(68, 138, 255, .2);
+}
+
+.md-typeset .file-tree > .admonition-title::before,
+.md-typeset .file-tree > summary::before {
+    background-color: #448aff;
+    content: "📁";
+}
