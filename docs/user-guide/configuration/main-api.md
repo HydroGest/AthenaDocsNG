@@ -32,7 +32,7 @@ Athena 依赖大模型 API 来工作。Athena 配置中提供了 **LLM API 相�
 
 ### 1. `API.APIList.APIType`
 
-API 的类型。可选项：`OpenAI`、`Cloudflare`、`Ollama`、`Gemini` 以及 `Custom URL`。当选择 `OpenAI` 以及 `Custom` 时，使用 OpenAI 的 API 格式。此两者的区别仅在于 URL 模板。
+API 的类型。可选项：`OpenAI`、`Cloudflare`、`Ollama`、`Gemini` 以及 `Custom URL`。当选择 `OpenAI` 以及 `Custom` 时，使用 OpenAI 的 API 格式。
 
 当选择 `OpenAI` 时，API 的请求地址为 `${BaseURL}/v1/chat/completions`，而当选择 `Custom` 时，API 的请求地址为 `${BaseURL}`。
 
@@ -65,7 +65,7 @@ AI 模型名称。例如 `llama-3.1-405b`，具体请见相应 API 提供商的�
 
 ### 6. `API.APIList.Ability`
 
-模型支持的功能。可选：`原生工具调用`、`识图功能`以及`结构化输出`。当你不知道时，可不选。具体查询该模型的文档。
+模型支持的功能。可选：`原生工具调用`、`识图功能`、`结构化输出`、`流式输出`、`深度思考`和`对话前缀续写`。你应该尽可能地正确勾选模型支持的所有功能。具体查询该模型的文档或咨询API服务提供商。
 
 #### 原生工具调用
 
@@ -79,7 +79,19 @@ AI 模型名称。例如 `llama-3.1-405b`，具体请见相应 API 提供商的�
 
 #### 结构化输出
 
-有些 API 支持 `response_format` 参数，用于强制 LLM 返回合法的 JSON 格式。如果你的 API 支持此参数，你可以在这里勾选 `结构化输出`，之后请求体中会包含此参数。这将大幅减少 LLM 返回的消息无法解析的可能。
+有些 API 支持 `response_format` 参数，用于强制 LLM 返回合法的 JSON 格式。如果你的 API 支持此参数，你可以在这里勾选 `结构化输出`，之后请求体中会包含此参数。勾选此项将使得 `LLMResponseFormat` 设置项内容被忽略。这将大幅减少 LLM 返回的消息无法解析的可能。
+
+#### 流式输出
+
+绝大部分 API 都支持流式输出。流式输出让用户在第一个 Token 生成时就可以开始看到生成的内容。但由于发送消息时，有些平台不支持修改消息内容，所以我们仍然要等到所有 Tokens 生成完毕后才会处理回复。也就是说，即使开启流式输出也不会让你更早看到生成的内容。提供此选项的原因是，某些 API 和模型只支持流式输出。
+
+#### 深度思考
+
+有些模型支持深度思考功能。这些模型在生成正式回复之前，会生成一段思维链内容。消息中的思维链内容在进入历史消息之前必须去除，因此如果你使用的模型支持深度思考，你必须勾选此项，并填写 `ReasoningStart` 和 `ReasoningEnd` 以指定思维链的开始和结束标记，让 Athena 能够正确地定位思维链内容并去除。对于OpenAI的o系列模型，你还可以指定`ReasoningEffort`来控制思维链的长度。
+
+#### 对话前缀续写
+
+这是一项 DeepSeek 的 Beta 功能。如果你使用的 API 支持对话前缀续写，你可以勾选此项并填写 `StartWith` 参数，LLM 将以此前缀开始回复内容。善用此功能可以实现的效果包括但不限于：强制模型使用 JSON 或 XML 格式回复、强制模型设置 `status` 为 `success`、强制模型深度思考等。详情请参考 [DeepSeek 文档](https://api-docs.deepseek.com/zh-cn/guides/chat_prefix_completion)。
 
 ### 其他配置
 
