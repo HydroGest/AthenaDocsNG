@@ -28,6 +28,7 @@ theme:
   features:
     - navigation.instant
     - navigation.instant.progress
+    - navigation.tracking
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
