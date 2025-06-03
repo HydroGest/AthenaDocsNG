@@ -1,151 +1,192 @@
-# 机器人设定
+# 机器人设置
 
-除了直接编辑 Prompt 以外，Athena 提供了一种更便捷的方法配置 Bot 的角色设定。在 **机器人设定** 中，有一整套配置项用于简便调节 Bot 的设定，这些结果会被替换到 Prompt 的特定区域。
+机器人设置是 YesImBot 配置中的基础部分，它定义了机器人的基本信息和行为特性。本章将详细介绍如何配置机器人的名称、人格、响应模式等基本设置。
 
-## 解释
+## 基本设置
 
-### 1. `Bot.WhoAmI`
+### 机器人名称
 
-这个配置项用于定义 Bot 的简要设定。这个配置项的内容会在 Prompt 中这样体现：
-```text
-你现在是 ${config.Bot.WhoAmI}, 
-```
-
-例如，你可以这样填写：
-```text
-一个普通群友、音游专家
-```
-或者：
-
-```text
-一个暴躁高中生
-```
-这样，在发送给LLM的系统提示词中，对应的位置就会变成`你现在是一个普通群友、音游专家`或`你现在是一个暴躁高中生`。其他的配置项也是类似的。
-
-### 2. `Bot.BotName`
-
-这个配置项用于定义 Bot 的名称。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-你的名字是 ${config.Bot.BotName}, 
-```
-
-**注意，`${config.Bot.BotName}` 总是会被替换成这里填写的名称，如果要让 `Bot.SelfAwareness` 配置项起作用，应使用 `${BotName}`。**
-
-这里填写 Bot 的 QQ 账户名称最佳。
-
-### 3. `Bot.BotHomeTown`
-
-这个配置项用于定义 Bot 的家乡。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-你的家乡来自于 ${config.Bot.BotHometown}
-```
-
-* 某些 Prompt 模板可能不包含此项。
-
-### 4. `Bot.BotYearold`
-
-这个配置项用于定义 Bot 的年龄。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-你今年 ${config.Bot.BotYearold} 岁了。
-```
-
- * 某些 Prompt 模板可能不包含此项。
-
-### 4. `Bot.BotPersonality`
-
-这个配置项用于定义 Bot 的性格特征。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-你的性格特征是 ${config.Bot.BotPersonality}。
-```
-
-* 某些 Prompt 模板可能不包含此项。
-
-### 5. `Bot.BotGender`
-
-这个配置项用于定义 Bot 的性别。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-性别为 ${config.Bot.BotGender}。
-```
-或
-```text
-你的性别是 ${config.Bot.BotGender}。
-```
-
-### 6. `Bot.BotHabbits`
-
-这个配置项用于定义 Bot 的爱好。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-你的爱好是 ${config.Bot.BotHabbits}。
-```
-
-例如，你可以这样填写：
-
-```text
-打音游
-```
-
-* 某些 Prompt 模板可能不包含此项。
-
-### 7. `Bot.BotBackground`
-
-这个配置项用于定义 Bot 的背景。这个配置项的内容会在 Prompt 中这样体现：
-
-```text
-${config.Bot.BotBackground}
-```
-或
-
-```text
-这是一些必要的背景信息: ${config.Bot.BotBackground}
-```
-
-例如，你可以这样填写：
-
-```text
-你字太白，号青莲居士，唐朝浪漫主义诗人，被后人誉为“诗仙”。与杜甫并称为“李杜”。汉族，祖籍陇西成纪。一说出生于碎叶城（当时属唐朝领土，今属吉尔吉斯斯坦），4岁时跟随父亲迁至剑南道绵州。一说即出生于绵州昌隆（今四川江油）。李白存世诗文千余篇，有《李太白集》传世。762年病逝，享年61岁。其墓在今安徽当涂，四川江油、湖北安陆有纪念馆。 李白深受黄老列庄思想影响，有《李太白集》传世，诗作中多以醉时写的，代表作有《望庐山瀑布》、《行路难》、《蜀道难》、《将进酒》、《梁甫吟》、《早发白帝城》等。
-```
-~~（仅做示范）~~
-
-### 8. `Bot.CuteMode`
-
-实验性功能。这个配置项是一个布尔值，目前尚未开发完毕。
-
-### 9. `Bot.WordsPerSecond`
-
-设置 Bot 的打字速度，单位为字/秒。当值不为 0 时，Bot 在发送一条LLM生成的消息前会按照字数等待一段时间。
-
-### 10. `Bot.NickorName`
-
-设置 Bot 看到群里其他人的名字，可以是群昵称或 QQ 昵称。
-
-### 11. `Bot.SelfAwareness`
-
-设置 Bot 看到的自己的名字。可以设置为群昵称、QQ 昵称、此配置设置的名字。在 Prompt 中，`${BotName}` 会被替换为这里选择的内容。
-**当选择前两项时，之前配置的机器人名称将会被覆盖。**
-
-### 12. `Bot.BotReplySpiltRegex`
-
-研究表明，正常的人类发消息是不会发一大串的长篇大论的。此配置用于设置分割 Bot 生成的句子时所用的正则表达式。如果要关闭分割，请设为`(?!)`而不是空字符串。
-
-### 13. `BotSentencePostProcess`
-
-用于正则替换 Bot 生成的回复中特定的部分，它们会从上到下依次应用。
-
-## 示例
+机器人名称是用户在对话中称呼机器人的名字。当用户在消息中提到这个名字时，机器人的回应意愿值会提高。
 
 ```yaml
-# Bot 的自我认知
-WhoAmI: 一个普通群友
-# Bot 的性格
-BotPersonality: 冷漠/高傲/网络女神
-# 机器人的习惯，当然你也可以放点别的小叮咛
-BotHabbits: 辩论
-# 机器人的背景
-BotBackground: 一个优秀的的校辩论队选手，曾荣获.....
+BotSettings:
+  BotName: "Athena"  # 机器人的名字
+  BotNameAliases:     # 机器人名字的别名列表
+    - "雅典娜"
+    - "小雅"
 ```
+
+**参数说明：**
+
+- `BotName`：机器人的主要名称，建议使用简短、易记的名字
+- `BotNameAliases`：机器人名字的别名列表，当用户使用这些别名时，机器人也会识别
+
+### 人格设定
+
+人格设定定义了机器人的性格特点和背景故事，影响机器人的回应风格和内容。
+
+```yaml
+BotSettings:
+  Personality: "友好、知识渊博的AI助手，喜欢用简洁明了的语言解释复杂概念。"
+  BackgroundStory: "Athena是一个设计用于群聊的AI助手，擅长回答问题、参与讨论和提供有用信息。"
+```
+
+**参数说明：**
+
+- `Personality`：机器人的性格特点描述，影响回应的语气和风格
+- `BackgroundStory`：机器人的背景故事，提供上下文信息，帮助语言模型理解其角色
+
+## 响应设置
+
+### 响应模式
+
+响应模式控制机器人如何回应用户的消息。
+
+```yaml
+BotSettings:
+  ResponseMode: "balanced"  # 响应模式：passive, balanced, active
+  MaxResponseLength: 500    # 最大回应长度（字符数）
+  MinResponseLength: 20     # 最小回应长度（字符数）
+```
+
+**参数说明：**
+
+- `ResponseMode`：机器人的响应模式
+  - `passive`：被动模式，主要在被直接提问或@时回应
+  - `balanced`：平衡模式，在适当的时机参与对话（推荐）
+  - `active`：主动模式，积极参与对话，回应频率较高
+- `MaxResponseLength`：单条回应的最大字符数，防止回应过长
+- `MinResponseLength`：单条回应的最小字符数，确保回应有足够的信息量
+
+### 回应延迟
+
+回应延迟设置可以模拟人类思考和打字的时间，使机器人的回应更加自然。
+
+```yaml
+BotSettings:
+  EnableResponseDelay: true       # 是否启用回应延迟
+  BaseResponseDelay: 2            # 基础延迟时间（秒）
+  ResponseDelayPerChar: 0.05      # 每字符额外延迟时间（秒）
+  MaxResponseDelay: 15            # 最大延迟时间（秒）
+```
+
+**参数说明：**
+
+- `EnableResponseDelay`：是否启用回应延迟功能
+- `BaseResponseDelay`：基础延迟时间，模拟思考时间
+- `ResponseDelayPerChar`：每字符额外延迟时间，模拟打字速度
+- `MaxResponseDelay`：最大延迟时间，防止长回应导致过长延迟
+
+实际延迟时间计算公式：`min(BaseResponseDelay + ResponseLength * ResponseDelayPerChar, MaxResponseDelay)`
+
+## 高级设置
+
+### 情绪模拟
+
+情绪模拟功能使机器人能够根据对话内容和上下文，表现出适当的情绪变化，使交流更加自然。
+
+```yaml
+BotSettings:
+  EnableEmotionSimulation: true   # 是否启用情绪模拟
+  EmotionChangeRate: 0.3          # 情绪变化速率（0-1）
+  DefaultEmotion: "neutral"       # 默认情绪状态
+```
+
+**参数说明：**
+
+- `EnableEmotionSimulation`：是否启用情绪模拟功能
+- `EmotionChangeRate`：情绪变化的速率，值越大变化越快
+- `DefaultEmotion`：默认的情绪状态，可选值包括：`happy`, `sad`, `angry`, `surprised`, `neutral`
+
+### 学习能力
+
+学习能力设置控制机器人从对话中学习新知识和适应群组风格的能力。
+
+```yaml
+BotSettings:
+  EnableLearning: true            # 是否启用学习能力
+  LearningRate: 0.2               # 学习速率（0-1）
+  StyleAdaptation: true           # 是否适应群组对话风格
+```
+
+**参数说明：**
+
+- `EnableLearning`：是否启用学习能力
+- `LearningRate`：学习新知识的速率，值越大学习越快
+- `StyleAdaptation`：是否自动适应群组的对话风格
+
+## 配置示例
+
+以下是一个完整的机器人设置配置示例：
+
+```yaml
+BotSettings:
+  # 基本信息
+  BotName: "Athena"
+  BotNameAliases:
+    - "雅典娜"
+    - "小雅"
+  Personality: "友好、知识渊博的AI助手，喜欢用简洁明了的语言解释复杂概念。"
+  BackgroundStory: "Athena是一个设计用于群聊的AI助手，擅长回答问题、参与讨论和提供有用信息。"
+  
+  # 响应设置
+  ResponseMode: "balanced"
+  MaxResponseLength: 500
+  MinResponseLength: 20
+  EnableResponseDelay: true
+  BaseResponseDelay: 2
+  ResponseDelayPerChar: 0.05
+  MaxResponseDelay: 15
+  
+  # 高级设置
+  EnableEmotionSimulation: true
+  EmotionChangeRate: 0.3
+  DefaultEmotion: "neutral"
+  EnableLearning: true
+  LearningRate: 0.2
+  StyleAdaptation: true
+```
+
+## 最佳实践
+
+1. **名称选择**：选择一个简短、独特且易于识别的名字，避免使用常见词汇作为机器人名称
+2. **人格一致性**：确保人格设定和背景故事保持一致，避免矛盾的描述
+3. **响应长度**：根据群聊的活跃度和主题调整响应长度，活跃群聊适合较短回应，专业讨论群适合较长回应
+4. **延迟设置**：模拟真实的思考和打字时间，但不要设置过长的延迟，以免影响用户体验
+5. **定期调整**：根据用户反馈和实际使用情况，定期调整机器人设置
+
+## 常见问题
+
+### 机器人不回应自己的名字
+
+如果机器人不回应当用户提到其名字时，可能是因为：
+
+1. `BotName` 或 `BotNameAliases` 配置不正确
+2. 意愿值系统的阈值设置过高
+
+解决方案：
+- 检查 `BotName` 和 `BotNameAliases` 配置
+- 降低意愿值阈值或增加名字提及的意愿值提升
+
+### 回应风格与设定不符
+
+如果机器人的回应风格与人格设定不符，可能是因为：
+
+1. 人格描述不够具体或存在矛盾
+2. 提示词模板没有正确引用人格设定
+
+解决方案：
+- 修改人格描述，使其更加具体和一致
+- 检查提示词模板，确保正确引用了人格设定
+
+### 回应延迟过长
+
+如果机器人的回应延迟过长，可能是因为：
+
+1. `BaseResponseDelay` 或 `ResponseDelayPerChar` 设置过高
+2. 回应内容过长，导致累积的延迟时间过长
+
+解决方案：
+- 降低 `BaseResponseDelay` 和 `ResponseDelayPerChar` 的值
+- 调整 `MaxResponseDelay` 设置一个合理的上限
+- 减小 `MaxResponseLength` 限制回应长度

@@ -1,72 +1,135 @@
-# Site
-site_name: Athena 文档站
-site_url: https://athena.mkc.icu/
+site_name: Athena 用户文档
+site_url: https://docs.yesimbot.chat/
 
-# Repo
-repo_url: https://github.com/HydroGest/AthenaDocsNG
-repo_name: HydroGest/AthenaDocsNG
-edit_uri: edit/main/docs/
-
-nav:
-  - 首页: /index
-  - 用户手册: 
-    - 快速上手: /user-guide/getting-started
-    - 从 V1 迁移: /user-guide/migrate-from-v1
-    - 配置: 
-      - 记忆槽位设置: /user-guide/configuration/memory-slot
-      - 主 API 配置: /user-guide/configuration/main-api
-      - API 参数配置: /user-guide/configuration/parameters
-      - Prompt 配置: /user-guide/configuration/prompt
-      - Bot 设定: /user-guide/configuration/bot-settings
-      - 验证器设置: /user-guide/configuration/verifier
-    - 教程: /index
-     
-
-# Theme
 theme:
   name: material
+  language: zh
   features:
-    - navigation.instant
-    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
     - navigation.tracking
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: 切换到浅色模式
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
+    - scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-7
-        name: 切换到深色模式
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+        name: 切换到暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-4
-        name: 跟随系统
+        name: 切换到亮色模式
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.png
+  logo: assets/logo.png
 
-# Markdown Extensions
-markdown_extensions: 
-  - attr_list
-  - md_in_html
-  - def_list
+markdown_extensions:
   - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
 
-extra_javascript:
-  - javascripts/katex.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+plugins:
+  - search
+  # - minify:
+  #     minify_html: true
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     fallback_to_build_date: true
+  # - social
 
-extra_css:
-  - stylesheets/extra.css
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/MiaowFISH/YesImBot
+    - icon: fontawesome/brands/qq
+      link: https://qm.qq.com/cgi-bin/qm/qr?k=857518324
+  # analytics:
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+
+nav:
+  - 首页: index.md
+  - 项目概述:
+    - 介绍: overview/introduction.md
+    - 核心功能: overview/features.md
+    - 应用场景: overview/use-cases.md
+    - 系统架构: overview/architecture.md
+  - 快速开始:
+    - 环境准备: getting-started/prerequisites.md
+    - 安装指南: getting-started/installation.md
+    - 基本配置: getting-started/basic-configuration.md
+    - 首次运行: getting-started/first-run.md
+    - 快速问答: getting-started/faq.md
+  - 用户指南:
+    - 基本概念: user-guide/concepts.md
+    - 配置详解:
+      - 概述: user-guide/configuration/index.md
+      - 机器人设置: user-guide/configuration/bot-settings.md
+      - API 配置: user-guide/configuration/api-configuration.md
+      - 记忆槽位: user-guide/configuration/memory-slots.md
+      - 提示词设置: user-guide/configuration/prompts.md
+      - 参数调优: user-guide/configuration/parameters.md
+      - 验证器配置: user-guide/configuration/verifier.md
+      - 图像功能: user-guide/configuration/image-viewer.md
+    - 从旧版本迁移: user-guide/migration.md
+    - 多平台适配: user-guide/platforms.md
+  - 核心功能详解:
+    - 核心功能: features
+    - 意愿值系统: features/willingness-system.md
+    - 记忆管理: features/memory-management.md
+    - 多适配器支持: features/adapters.md
+    - 工具系统: features/tool-system.md
+    - 人格定制: features/personality.md
+  - 高级用法:
+    - 自定义提示词: advanced/custom-prompts.md
+    - 记忆优化: advanced/memory-optimization.md
+    - 多模型协同: advanced/multi-model.md
+    - 性能调优: advanced/performance.md
+    - 集成其他服务: advanced/integrations.md
+  - 开发者指南:
+    - 架构设计: developers/architecture.md
+    - API 参考: developers/api.md
+    - 扩展开发: developers/extensions.md
+    - 工具开发: developers/tools.md
+    - 贡献指南: developers/contributing.md
+  - 故障排除:
+    - 安装问题: troubleshooting/installation.md
+    - 配置问题: troubleshooting/configuration.md
+    - 运行问题: troubleshooting/runtime.md
+    - 性能问题: troubleshooting/performance.md
+    - 常见错误: troubleshooting/common-errors.md
+  - 参考资料:
+    - 配置参考: reference/configuration.md
+    - API 参考: reference/api.md
+    - 内置工具参考: reference/built-in-tools.md
+    - 相关资源: reference/resources.md
+  - 关于:
+    - 更新日志: about/changelog.md
+    - 贡献者: about/contributors.md
+    - 许可证: about/license.md
