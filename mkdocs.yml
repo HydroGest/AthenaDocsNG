@@ -1,6 +1,10 @@
 site_name: Athena 用户文档
 site_url: https://docs.yesimbot.chat/
 
+repo_url: https://github.com/HydroGest/AthenaDocsNG
+repo_name: HydroGest/AthenaDocsNG
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   language: zh
