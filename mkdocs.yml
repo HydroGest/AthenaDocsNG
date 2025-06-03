@@ -70,7 +70,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/MiaowFISH/YesImBot
+      link: https://github.com/HydroGest/YesImBot
     - icon: fontawesome/brands/qq
       link: https://qm.qq.com/cgi-bin/qm/qr?k=857518324
   # analytics:

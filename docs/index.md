@@ -30,8 +30,8 @@ YesImBot 是一个基于 [Koishi](https://koishi.chat/) 的智能聊天机器人
 
 ## 社区支持
 
-- **GitHub 仓库**：[MiaowFISH/YesImBot](https://github.com/MiaowFISH/YesImBot)
-- **问题反馈**：[GitHub Issues](https://github.com/MiaowFISH/YesImBot/issues)
+- **GitHub 仓库**：[HydroGest/YesImBot](https://github.com/HydroGest/YesImBot)
+- **问题反馈**：[GitHub Issues](https://github.com/HydroGest/YesImBot/issues)
 - **QQ 交流群**：[857518324](https://qm.qq.com/cgi-bin/qm/qr?k=857518324)
 
 ## 许可证

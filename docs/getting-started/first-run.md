@@ -154,5 +154,5 @@ koishi start
 如果您有任何问题或需要帮助，可以：
 
 - 查阅[快速问答](faq.md)，了解常见问题的解答
-- 访问 [GitHub 仓库](https://github.com/MiaowFISH/YesImBot)，提交 Issue 或查看讨论
+- 访问 [GitHub 仓库](https://github.com/HydroGest/YesImBot)，提交 Issue 或查看讨论
 - 加入 [QQ 交流群](https://qm.qq.com/cgi-bin/qm/qr?k=857518324)，与其他用户和开发者交流

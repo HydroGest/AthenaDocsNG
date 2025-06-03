@@ -227,7 +227,7 @@ API 调用失败的解决方法：
 
 ### YesImBot 是开源的吗？
 
-是的，YesImBot 是开源的，您可以在 [GitHub 仓库](https://github.com/MiaowFISH/YesImBot) 查看源代码，也可以贡献代码或提交 Issue。
+是的，YesImBot 是开源的，您可以在 [GitHub 仓库](https://github.com/HydroGest/YesImBot) 查看源代码，也可以贡献代码或提交 Issue。
 
 ### 如何贡献代码？
 
@@ -246,15 +246,14 @@ API 调用失败的解决方法：
 
 是的，YesImBot 有活跃的交流社区：
 
-- [GitHub Discussions](https://github.com/MiaowFISH/YesImBot/discussions)
+- [GitHub Discussions](https://github.com/HydroGest/YesImBot/discussions)
 - [QQ 交流群](https://qm.qq.com/cgi-bin/qm/qr?k=857518324)
-- [Discord 服务器](https://discord.gg/yesimbot)
 
 ### 如何报告 Bug？
 
 报告 Bug 的步骤：
 
-1. 访问 [GitHub Issues](https://github.com/MiaowFISH/YesImBot/issues)
+1. 访问 [GitHub Issues](https://github.com/HydroGest/YesImBot/issues)
 2. 点击"New Issue"
 3. 选择"Bug Report"模板
 4. 填写详细信息，包括：
@@ -270,7 +269,7 @@ API 调用失败的解决方法：
 
 请求新功能的步骤：
 
-1. 访问 [GitHub Issues](https://github.com/MiaowFISH/YesImBot/issues)
+1. 访问 [GitHub Issues](https://github.com/HydroGest/YesImBot/issues)
 2. 点击"New Issue"
 3. 选择"Feature Request"模板
 4. 填写详细信息，包括：

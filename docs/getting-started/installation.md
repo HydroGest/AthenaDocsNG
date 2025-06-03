@@ -84,7 +84,7 @@ module.exports = {
 ### 步骤 1: 克隆仓库
 
 ```bash
-git clone https://github.com/MiaowFISH/YesImBot.git
+git clone https://github.com/HydroGest/YesImBot.git
 cd YesImBot
 ```
 
