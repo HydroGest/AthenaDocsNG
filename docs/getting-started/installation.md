@@ -1,168 +1,75 @@
 # 安装指南
 
-本指南将帮助您安装 YesImBot 插件到您的 Koishi 环境中。确保您已完成[环境准备](prerequisites.md)中的所有步骤，然后按照以下说明进行操作。
+## 前置要求
 
-## 通过 Koishi 插件市场安装（推荐）
+在安装 YesImBot 之前，请确保您的环境满足以下要求：
 
-使用 Koishi 插件市场是安装 YesImBot 最简单的方法，特别适合新手用户。
+-   ✅ 您需要一个正在运行的 Koishi 实例（版本 4.18.7 或更高）。
+-   ✅ Node.js 版本 18 或更高。
+-   ✅ 熟悉 Koishi 的基本操作，能够进入控制台或编辑配置文件。
+-   ✅ 已配置 Koishi 数据库服务（MySQL、PostgreSQL、SQLite 等），这是记忆和历史功能所必需的。
 
-### 步骤 1: 打开 Koishi 控制台
+!!! info "Koishi 新手？"
+    如果您还没有安装 Koishi，请先访问 [Koishi 官方文档](https://koishi.chat/) 了解如何安装和配置。
 
-启动 Koishi 应用程序，并在浏览器中打开控制台（通常是 `http://localhost:5140`）。
+## 第一步：安装核心插件
 
-### 步骤 2: 访问插件市场
+`koishi-plugin-yesimbot` 是运行一切功能的基础。
 
-1. 在 Koishi 控制台左侧菜单中，点击"插件市场"
-2. 在搜索框中输入 `yesimbot`
-3. 在搜索结果中找到 `koishi-plugin-yesimbot`
+### 方式一：通过 Koishi 插件市场 (推荐)
 
-### 步骤 3: 安装插件
+1.  在 Koishi 控制台的左侧菜单中，点击 "插件市场"。
+2.  在搜索框中输入 `yesimbot`。
+3.  找到 `koishi-plugin-yesimbot` 并点击“安装”。
 
-1. 点击 `koishi-plugin-yesimbot` 插件卡片
-2. 点击"安装"按钮
-3. 等待安装完成
+### 方式二：通过命令行
 
-### 步骤 4: 安装扩展（可选）
-
-如果您需要 MCP 扩展功能，可以同样的方式搜索并安装 `koishi-plugin-yesimbot-extension-mcp`。
-
-## 通过 npm 命令行安装
-
-如果您使用命令行方式管理 Koishi，可以通过 npm 安装 YesImBot。
-
-### 步骤 1: 进入 Koishi 项目目录
-
-```bash
-cd 您的Koishi项目目录
-```
-
-### 步骤 2: 安装 YesImBot 核心插件
+在您的 Koishi 项目目录下，执行以下命令：
 
 ```bash
 npm install koishi-plugin-yesimbot
 ```
 
-### 步骤 3: 安装 MCP 扩展（可选）
+## 第二步：安装扩展插件 (按需)
 
-```bash
-npm install koishi-plugin-yesimbot-extension-mcp
-```
+YesImBot 的许多高级功能由扩展插件提供。请根据您的需求选择安装。
 
-### 步骤 4: 更新 Koishi 配置
+### 代码解释器 (Code Interpreter)
 
-编辑您的 `koishi.yml` 或 `koishi.config.js` 文件，添加 YesImBot 插件：
+-   **功能:** 允许 AI 在一个安全的沙箱环境中执行 JavaScript 代码，进行计算、数据处理等操作。
+-   **安装:**
+    -   插件市场搜索：`yesimbot-extension-code-interpreter`
+    -   命令行：`npm install koishi-plugin-yesimbot-extension-code-interpreter`
 
-对于 YAML 配置：
+### 好感度系统 (Favor System)
 
-```yaml
-plugins:
-  yesimbot:
-    # 这里将添加 YesImBot 的配置
-  yesimbot-extension-mcp:
-    # 这里将添加 MCP 扩展的配置（如果已安装）
-```
+-   **功能:** 为机器人添加好感度管理能力，AI 可以根据交互调整与用户的好感度。
+-   **安装:**
+    -   插件市场搜索：`yesimbot-extension-favor`
+    -   命令行：`npm install koishi-plugin-yesimbot-extension-favor`
 
-对于 JavaScript 配置：
+### 模型上下文协议 (MCP)
 
-```javascript
-module.exports = {
-  plugins: {
-    yesimbot: {
-      // 这里将添加 YesImBot 的配置
-    },
-    'yesimbot-extension-mcp': {
-      // 这里将添加 MCP 扩展的配置（如果已安装）
-    }
-  }
-}
-```
+-   **功能:** 允许连接外部工具服务器，动态扩展 AI 的工具集。
+-   **安装:**
+    -   插件市场搜索：`yesimbot-extension-mcp`
+    -   命令行：`npm install koishi-plugin-yesimbot-extension-mcp`
 
-## 从源代码安装（开发者选项）
+!!! tip "扩展插件安装建议"
+    -   **新手用户:** 推荐安装**代码解释器**，它能显著增强 AI 的实用能力。
+    -   **社群运营:** **好感度系统**能让机器人更好地融入社群。
+    -   **高级开发者:** **MCP** 扩展为系统集成提供了无限可能性。
 
-如果您是开发者或需要最新的功能，可以从源代码安装 YesImBot。
+## 第三步：启用插件
 
-### 步骤 1: 克隆仓库
+1.  安装完成后，前往 Koishi 控制台的“插件配置”页面。
+2.  在插件列表中找到 `yesimbot` 及您安装的扩展。
+3.  点击开关以启用插件。
 
-```bash
-git clone https://github.com/HydroGest/YesImBot.git
-cd YesImBot
-```
-
-### 步骤 2: 安装依赖
-
-```bash
-npm install
-```
-
-### 步骤 3: 构建项目
-
-```bash
-npm run build
-```
-
-### 步骤 4: 链接到您的 Koishi 项目
-
-```bash
-# 在 YesImBot 目录中
-npm link
-
-# 在您的 Koishi 项目目录中
-npm link koishi-plugin-yesimbot
-```
-
-## 验证安装
-
-安装完成后，您可以通过以下步骤验证 YesImBot 是否正确安装：
-
-1. 重启 Koishi 服务
-2. 在 Koishi 控制台中，导航到"插件配置"
-3. 检查是否存在 YesImBot 的配置选项
-4. 如果安装了 MCP 扩展，也应该能看到相应的配置选项
-
-## 常见安装问题
-
-### 找不到插件
-
-如果在插件市场中搜索不到 YesImBot，可能是因为：
-
-- 您的 Koishi 版本过低，需要更新到最新版本
-- 插件市场连接不稳定，可以尝试刷新页面或稍后再试
-- 您可能需要添加自定义插件源
-
-解决方案：
-
-1. 更新 Koishi 到最新版本
-2. 检查网络连接
-3. 如果问题仍然存在，尝试通过 npm 命令行安装
-
-### 安装失败
-
-如果安装过程中出现错误，可能是因为：
-
-- 网络连接问题
-- 依赖冲突
-- 权限问题
-
-解决方案：
-
-1. 检查网络连接
-2. 尝试清除 npm 缓存：`npm cache clean --force`
-3. 确保您有足够的权限安装插件
-4. 查看错误日志，了解具体问题
-
-### 版本兼容性问题
-
-如果安装后插件无法正常工作，可能是版本兼容性问题：
-
-- YesImBot 与当前 Koishi 版本不兼容
-- YesImBot 核心与 MCP 扩展版本不匹配
-
-解决方案：
-
-1. 确保您使用的是最新版本的 Koishi
-2. 确保 YesImBot 核心与 MCP 扩展版本匹配
-3. 查看 YesImBot 的 GitHub 仓库，了解版本兼容性信息
+启用后，请查看 Koishi 控制台的日志，确认没有与插件相关的错误信息。
 
 ## 下一步
 
-成功安装 YesImBot 后，您需要进行[基本配置](basic-configuration.md)才能开始使用。
+恭喜您，安装已经完成！现在，请移步到下一章节，完成机器人的首次配置。
+
+➡️ **[快速上手](quick-start.md)**

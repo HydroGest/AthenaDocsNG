@@ -1,131 +1,105 @@
-site_name: Athena 用户文档
+# 网站信息
+site_name: YesImBot 官方文档
+site_description: 让语言大模型机器人激活灵魂的 Koishi 插件
 site_url: https://docs.yesimbot.chat/
 
+# 文档仓库
 repo_name: HydroGest/AthenaDocsNG
 repo_url: https://github.com/HydroGest/AthenaDocsNG
 edit_uri: edit/main/docs/
 
+# 导航结构
+nav:
+  - 首页: index.md
+  - 入门指南:
+    - 概述: getting-started/overview.md
+    - 安装指南: getting-started/installation.md
+    - 快速上手: getting-started/quick-start.md
+  - 核心概念:
+    - 智能体架构: concepts/agent-architecture.md
+    - 意愿系统: concepts/willingness-system.md
+    - 记忆与世界状态: concepts/memory-system.md
+    - 模型服务: concepts/model-service.md
+    - 工具系统: concepts/tool-system.md
+  - 配置与参考:
+    - 指令参考: reference/commands.md
+    - 完整配置参考: reference/configuration.md
+  - 扩展插件:
+    - 代码解释器: extensions/code-interpreter.md
+    - 好感度系统: extensions/favor.md
+    - MCP 协议: extensions/mcp.md
+  - 进阶玩法:
+    - 定制提示词: advanced/custom-prompts.md
+    - 性能与成本优化: advanced/performance-optimization.md
+  - 最佳实践:
+    - 场景范例: best-practices/scenarios.md
+  - 附录:
+    - 常见问题 (FAQ): appendices/faq.md
+    - 故障排除: appendices/troubleshooting.md
+    - 术语表: appendices/glossary.md
+    - 开发者指南: appendices/developer-guide.md
+
+# 主题配置
 theme:
   name: material
   language: zh
+  logo: assets/logo.svg
+  favicon: assets/favicon.png
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.top
     - navigation.tracking
-    - navigation.indexes
+    - search.suggest
     - search.highlight
     - search.share
-    - search.suggest
     - content.code.copy
-    - content.tabs.link
+    - content.code.annotate
+    - toc.follow
   palette:
+    # 浅色模式
     - scheme: default
       primary: indigo
       accent: indigo
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
+    # 深色模式
     - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
+  font:
+    text: Roboto
+    code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
-  # favicon: assets/favicon.png
-  # logo: assets/logo.png
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/HydroGest/YesImBot
-    - icon: fontawesome/brands/qq
-      link: https://qm.qq.com/cgi-bin/qm/qr?k=857518324
-
+# Markdown 扩展
 markdown_extensions:
   - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - meta
-  - md_in_html
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: HydroGest
-      repo: YesImBot
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+  - attr_list
+  - md_in_html
   - tables
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-plugins:
-  - search
-  - minify:
-      minify_html: true
-
-nav:
-  - 首页: index.md
-  - 项目概述:
-    - 介绍: overview/introduction.md
-    - 核心功能: overview/features.md
-  - 入门指南:
-    - 环境准备: getting-started/prerequisites.md
-    - 安装指南: getting-started/installation.md
-    - 基本配置: getting-started/basic-configuration.md
-    - 首次运行: getting-started/first-run.md
-    - 常见问题: getting-started/faq.md
-  - 用户指南:
-    - 概述: user-guide/index.md
-    - 基本概念: user-guide/concepts.md
-    - 配置详解:
-      - 概述: user-guide/configuration/index.md
-      - 机器人设置: user-guide/configuration/bot-settings.md
-      - API 配置: user-guide/configuration/api-configuration.md
-      - 记忆槽位配置: user-guide/configuration/memory-slots.md
-      - 提示词设置: user-guide/configuration/prompts.md
-      - 参数调优: user-guide/configuration/parameters.md
-      - 验证器配置: user-guide/configuration/verifier.md
-      - 图像功能: user-guide/configuration/image-viewer.md
-  - 核心功能:
-    - 概述: features/index.md
-    - 意愿值系统: features/willingness-system.md
-    - 记忆管理: features/memory-management.md
-    - 多适配器支持: features/adapters.md
-    - 人格定制: features/personality.md
-    - 工具系统: features/tool-system.md
-  - 高级用法:
-    - 自定义提示词: advanced/custom-prompts.md
-  - 故障排除:
-    - 安装问题: troubleshooting/installation.md
-    - 配置问题: troubleshooting/configuration.md
-  - 开发者指南: developers/index.md
-  - 参考资料: reference/index.md
-  - 关于: about/index.md
-
-copyright: Copyright &copy; 2024-2025
+# 额外配置
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/HydroGest/YesImBot

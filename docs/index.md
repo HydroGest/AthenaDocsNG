@@ -1,39 +1,35 @@
-# YesImBot 智能聊天机器人
+# 欢迎来到 YesImBot 的世界
 
-欢迎使用 YesImBot（也称为 Athena）智能聊天机器人系统的官方文档！
+YesImBot 是一个为 [Koishi](https://koishi.chat/) 框架设计的、高度可扩展的、旨在赋予聊天机器人“灵魂”的插件。
 
-## 什么是 YesImBot？
+## 核心理念：机械壳，人类心
 
-YesImBot 是一个基于 [Koishi](https://koishi.chat/) 的智能聊天机器人系统，旨在让人工智能大模型能够自然地参与到群聊讨论中，模拟真实的人类互动体验。通过先进的意愿值系统、记忆管理和工具扩展，为用户提供更加人性化的 AI 交流体验。
+YesImBot 的核心设计理念是“机械壳，人类心”。我们致力于打破传统聊天机器人机械、被动的交互模式，创造一个能够自然融入群聊环境、像真人一样思考和交流的 AI 伙伴。
 
-> 机械壳，人类心。
+它不仅仅是一个问答工具，更是一个具备性格、记忆和动态响应能力的智能体。通过 YesImBot，您可以将一个通用的大语言模型（LLM）转变为一个独一无二的、专属于您的社群的虚拟成员。
 
-## 核心特性
+## 主要特性
 
-- **🧠 智能对话管理**：基于意愿值系统控制 Bot 的主动发言频率，模拟真实人类的交流模式
-- **💾 记忆系统**：通过 Memory 和 Scenario 管理上下文，使机器人能够记住和理解对话历史
-- **🔗 多适配器支持**：支持多种 LLM API（OpenAI、Cloudflare、Ollama 等），实现负载均衡和故障转移
-- **🛠️ 可扩展的工具系统**：基于工具调用框架，允许机器人执行各种操作
-- **🎭 自定义人格**：轻松定制 Bot 的名字、性格、响应模式等
-- **📱 Web 管理界面**：提供直观的 Web 界面进行配置和管理
-- **🔌 MCP 扩展支持**：支持 Model Context Protocol 扩展，实现更强大的功能集成
+-   **🤖 动态意愿系统:** 独创的四层意愿模型，让机器人拥有“人性化”的发言逻辑，在适当的时机自然地加入对话。
+-   **🧠 高级记忆管理:** 结合长期核心记忆与自动摘要的短期记忆，确保对话的连贯性和深度。
+-   **☁️ 强大的模型服务:** 支持多种 LLM 提供商，可设置复杂的故障转移和负载均衡策略。
+-   **🛠️ 可扩展的工具集:** 通过插件化的工具系统，可以无限扩展机器人的能力边界，执行搜索、计算、代码执行等复杂任务。
+-   **⚙️ 深度可定制:** 从性格、提示词到每一个响应细节，几乎所有方面都可进行精细配置。
+-   **🚀 易于上手的配置:** 提供创新的交互式 `setup` 指令，引导用户轻松完成初始配置。
 
-## 快速导航
+## 快速通道
 
-- [项目概述](overview/introduction.md)：了解 YesImBot 的设计理念和核心功能
-- [快速开始](getting-started/installation.md)：安装和配置 YesImBot
-- [用户指南](user-guide/concepts.md)：学习如何使用和配置 YesImBot
-- [核心功能详解](features/willingness-system.md)：深入了解 YesImBot 的核心功能
-- [高级用法](advanced/custom-prompts.md)：探索 YesImBot 的高级功能和用法
-- [开发者指南](developers/architecture.md)：了解如何扩展和开发 YesImBot
-- [故障排除](troubleshooting/installation.md)：解决常见问题和错误
+| 入门指南 | 核心功能 |
+| :--- | :--- |
+| ➡️ **[安装指南](getting-started/installation.md)** | 🧠 **[意愿系统](concepts/willingness-system.md)** |
+| ➡️ **[快速上手](getting-started/quick-start.md)** | 💾 **[记忆与世界状态](concepts/memory-system.md)** |
 
-## 社区支持
+## 项目信息
 
-- **GitHub 仓库**：[HydroGest/YesImBot](https://github.com/HydroGest/YesImBot)
-- **问题反馈**：[GitHub Issues](https://github.com/HydroGest/YesImBot/issues)
-- **QQ 交流群**：[857518324](https://qm.qq.com/cgi-bin/qm/qr?k=857518324)
+-   **当前版本:** 3.0.0-beta.3
+-   **项目主页:** [GitHub - HydroGest/YesImBot](https://github.com/HydroGest/YesImBot)
+-   **开发者:** HydroGest, Dispure
+-   **许可证:** MIT
 
-## 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](about/license.md) 文件了解详情。
+!!! tip "开始您的旅程"
+    如果您是第一次使用 YesImBot，我们强烈建议您从 **[安装指南](getting-started/installation.md)** 开始，然后通过 **[快速上手](getting-started/quick-start.md)** 完成您的首次配置。
