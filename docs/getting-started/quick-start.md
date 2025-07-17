@@ -4,6 +4,7 @@
 
 !!! danger "重要：启动必要条件"
     在开始配置前请注意，YesImBot 插件有两项**必须满足**的启动条件，否则插件将无法正常加载：
+
     1.  **配置可用模型：** 必须在 `modelService` 中至少配置一个能正常使用的 AI 模型。
     2.  **指定响应频道：** 必须在 `agentBehavior.arousal.allowedChannelGroups` 中至少添加一个允许 Bot 响应的频道。
 
@@ -35,6 +36,7 @@ setup
 
 !!! tip "向导指令"
     在 `setup` 流程中，您可以使用以下指令：
+
     -   `/n` 或 `/next`: 前往下一项
     -   `/p` 或 `/prev`: 返回上一项
     -   `/s` 或 `/save`: 保存并应用配置

@@ -46,6 +46,7 @@ theme:
   logo: assets/logo.svg
   favicon: assets/favicon.png
   features:
+    - navigation.instant
     - navigation.tabs
     - navigation.sections
     - navigation.top
@@ -77,11 +78,20 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+# 插件配置
+plugins:
+    - search
+    - mermaid2
+
 # Markdown 扩展
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

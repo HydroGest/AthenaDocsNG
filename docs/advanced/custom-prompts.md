@@ -9,15 +9,38 @@
 ```yaml
 agentBehavior:
   prompt:
-    system: "你是一个名为“{{bot.name}}”的 AI 助手。..."
-    user: "当前时间是 {{time.full}}。用户 {{user.name}} (ID: {{user.id}}) 说：\n{{message.content}}"
-    multimodal: "随以上消息，用户还发送了 {{message.images.count}} 张图片。"
-    # ... 其他模板
+    systemTemplate: "你是一个名为“{{session.bot.name}}”的 AI 助手。..."
+    userTemplate: "当前时间是 {{time.full}}。用户 {{session.user.name}} (ID: {{session.user.id}}) 说：\n{{WORLD_STATE.channel.history.pending.dialogue.0.content}}"
+    multiModalSystemTemplate: "..."
 ```
 
-## 模板引擎
+## 模板引擎与可用变量
 
-YesImBot 使用 [Mustache](https://mustache.github.io/) 作为模板引擎。这意味着您可以在模板中使用 `{{variable}}` 语法来插入动态数据。
+YesImBot 使用 [Mustache](https://mustache.github.io/) 作为模板引擎。这意味着您可以在模板中使用 `{{variable}}` 或 `{{#section}}...{{/section}}` 语法来插入动态数据。
+
+以下是渲染提示词时可用的主要数据对象（View）：
+
+-   `{{#session}}`: Koishi 的会话对象，包含了机器人和用户信息。
+    -   `{{session.bot.name}}`: 机器人的名字。
+    -   `{{session.user.name}}`: 发送消息的用户的昵称。
+    -   `{{session.user.id}}`: 用户的唯一 ID。
+-   `{{#TOOL_DEFINITION}}`: 包含了所有可用工具的定义。
+    -   `{{#tools}}...{{/tools}}`: 遍历所有工具。
+-   `{{#CORE_MEMORY}}`: 核心记忆内容。
+    -   `{{#memoryBlocks}}...{{/memoryBlocks}}`: 遍历所有记忆块。
+-   `{{#WORLD_STATE}}`: 当前世界的完整快照。
+    -   `{{WORLD_STATE.channel.name}}`: 当前频道名称。
+    -   `{{#WORLD_STATE.channel.history.pending}}...{{/WORLD_STATE.channel.history.pending}}`: 当前正在处理的对话片段。
+    -   `{{#WORLD_STATE.channel.history.closed}}...{{/WORLD_STATE.channel.history.closed}}`: 最近的已关闭对话历史。
+    -   `{{#WORLD_STATE.channel.history.folded}}...{{/WORLD_STATE.channel.history.folded}}`: 更早的、被摘要的对话历史。
+-   `{{#CURRENT_CONVERSATION}}`: 在 Agent 的一次回复中，之前心跳的思考和行动历史。
+    -   `{{#history}}...{{/history}}`: 遍历之前的心跳记录。
+-   `{{ONETIME_CODE}}`: 一个一次性的验证码，用于在多模态消息中安全地引用图片。
+-   **全局 Snippets:**
+    -   `{{currentTime}}`: 获取 ISO 格式的当前时间。
+
+!!! tip "模板编写建议"
+    建议参考 `packages/core/resources/templates/` 目录下的默认模板，它们是展示如何使用这些复杂数据结构的绝佳示例。
 
 ### 可用变量
 
