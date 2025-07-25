@@ -19,10 +19,12 @@ YesImBot 是一个为 [Koishi](https://koishi.chat/) 框架设计的、高度可
 
 ## 快速通道
 
-| 入门指南 | 核心功能 |
-| :--- | :--- |
-| ➡️ **[安装指南](getting-started/installation.md)** | 🧠 **[意愿系统](concepts/willingness-system.md)** |
-| ➡️ **[快速上手](getting-started/quick-start.md)** | 💾 **[记忆与世界状态](concepts/memory-system.md)** |
+| 入门指南 | 核心功能 | 开发指南 |
+| :--- | :--- | :--- |
+| ➡️ **[安装指南](getting-started/installation.md)** | 🧠 **[意愿系统](concepts/willingness-system.md)** | 🔧 **[扩展开发](development/extension-development.md)** |
+| ➡️ **[快速上手](getting-started/quick-start.md)** | 💾 **[记忆与世界状态](concepts/memory-system.md)** | 📋 **[配置参考](reference/configuration.md)** |
+| 📖 **[项目概览](getting-started/overview.md)** | 🛠️ **[工具系统](concepts/tool-system.md)** | 📝 **[指令参考](reference/commands.md)** |
+| | 📨 **[消息处理策略](concepts/message-processing.md)** | |
 
 ## 项目信息
 

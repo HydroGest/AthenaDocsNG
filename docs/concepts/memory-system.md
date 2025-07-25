@@ -12,7 +12,7 @@
 核心记忆是机器人的“**长期记忆**”和“**人格基石**”。它存储着那些稳定、持久、定义了机器人“是谁”的信息。
 
 -   **实现方式:** 通过加载一个或多个本地 Markdown (`.md`) 文件来实现。
--   **配置路径:** `capabilities.memory.coreMemoryPath`
+-   **配置路径:** `capabilities.memory.coreMemoryPath` (默认: `data/yesimbot/memory/core`)
 -   **工作原理:**
     1.  在您指定的 `coreMemoryPath` 目录下，您可以创建任意数量的 `.md` 文件。
     2.  每个文件都代表一块独立的记忆，例如 `persona.md`（人格设定）, `knowledge.md`（知识库）。
@@ -56,8 +56,112 @@
     3.  **上下文构建:** 当需要与 AI 对话时，服务会智能地组合“**最新的几条原始对话**”和“**更早之前的对话摘要**”，形成一个既包含实时细节又包含历史脉络的完美上下文。
 
 **关键配置项:**
--   `enableSummarization`: 是否启用自动摘要功能。
+-   `summarization.enabled`: 是否启用自动摘要功能。
 -   `fullContextSegmentCount`: 在上下文中保留的最新“完整”对话片段数量。
--   `summarizationTriggerCount`: 累计多少条对话后，触发一次摘要任务。
+-   `summarization.triggerCount`: 累计多少条对话后，触发一次摘要任务。
 
 通过这种“**滚动摘要**”机制，YesImBot 理论上可以实现无限长度的对话记忆，确保了对话的深度和连贯性。
+
+## 记忆系统配置
+
+记忆系统提供了丰富的配置选项来优化性能和行为：
+
+### 基础配置
+
+```yaml
+capabilities:
+  memory:
+    coreMemoryPath: "data/yesimbot/memory/core"  # 核心记忆文件路径
+```
+
+### 记忆衰减设置
+
+```yaml
+capabilities:
+  memory:
+    forgetting:
+      checkIntervalHours: 24        # 遗忘检查周期（小时）
+      stalenessDays: 90            # 多久未访问视为陈旧（天）
+      salienceThreshold: 0.3       # 显著性阈值（0-1）
+      accessCountThreshold: 2      # 访问次数阈值
+```
+
+### 用户画像生成设置
+
+```yaml
+capabilities:
+  memory:
+    profileGeneration:
+      factRelevanceThreshold: 0.5   # 事实相关性阈值
+      maxSummaryLength: 500         # 画像最大字符数
+      updateIntervalHours: 24       # 画像更新间隔（小时）
+      minFactsForUpdate: 5          # 触发更新的最小事实数
+      confidenceThreshold: 0.7      # 置信度阈值
+      enableIncrementalUpdate: true # 启用增量更新
+      keyFactWeight: 2.0           # 关键事实权重倍数
+```
+
+### 缓存策略设置
+
+```yaml
+capabilities:
+  memory:
+    caching:
+      enabled: true                    # 启用缓存
+      profileCacheTtlMinutes: 30      # 用户画像缓存时间（分钟）
+      factsCacheTtlMinutes: 15        # 用户事实缓存时间（分钟）
+      maxCacheEntries: 1000           # 最大缓存条目数
+      cleanupIntervalMinutes: 10      # 缓存清理间隔（分钟）
+```
+
+### 对话历史配置
+
+```yaml
+capabilities:
+  history:
+    summarization:
+      enabled: true                   # 启用对话总结
+      prompt: "..."                   # 总结提示词模板
+      triggerCount: 6                 # 触发总结的片段数
+      minTriggerMessages: 50          # 最少压缩消息数
+
+    fullContextSegmentCount: 2        # 保留的完整片段数
+    maxMessages: 30                   # 上下文最大消息数
+    inactivityTimeoutSec: 1800        # 片段关闭超时（秒）
+
+    recall:
+      private: 3                      # 私聊召回画像数量
+      guild: 8                        # 群组召回画像数量
+      minConfidence: 0.5              # 最低置信度
+
+    dataRetentionDays: 30             # 数据保留天数
+    cleanupIntervalSec: 60            # 清理任务频率（秒）
+```
+
+## 最佳实践
+
+### 1. 核心记忆文件组织
+
+建议按功能分类创建记忆文件：
+
+```
+data/yesimbot/memory/core/
+├── persona.md          # 基础人格设定
+├── knowledge.md        # 专业知识库
+├── rules.md           # 行为准则
+└── context.md         # 特定场景信息
+```
+
+### 2. Token 限制管理
+
+合理设置每个记忆块的 `limit` 值：
+- 核心人格：200-300 tokens
+- 知识库：500-1000 tokens
+- 行为准则：100-200 tokens
+
+### 3. 记忆衰减策略
+
+根据使用场景调整遗忘参数：
+- 活跃社群：较短的 `stalenessDays`
+- 私人助手：较长的保留时间
+- 临时服务：更激进的遗忘策略

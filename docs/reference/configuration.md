@@ -14,8 +14,8 @@ agentBehavior: { ... }
 # 记忆、工具等扩展能力配置
 capabilities: { ... }
 
-# 图片服务配置
-imageService: { ... }
+# 资源服务配置
+assetService: { ... }
 
 # 系统缓存、调试等底层设置
 system: { ... }
@@ -83,6 +83,8 @@ AI 模型、API密钥和模型组配置。
 | `timeout` | `number` | 每轮对话最大超时时间 (秒, 默认 60)。 |
 | `prompt` | `object` | 提示词模板。 |
 | `vision` | `VisionConfig` | 视觉与多模态配置。 |
+| `newMessageStrategy` | `string` | 新消息处理策略 (默认 `skip`)。 |
+| `deferredProcessingTime` | `number` | 延迟处理策略的安静期时间 (毫秒, 默认 10000)。 |
 
 ### `ArousalConfig`
 | 键 | 类型 | 默认值 | 描述 |
@@ -126,31 +128,38 @@ AI 模型、API密钥和模型组配置。
 |---|---|---|---|
 | `extra` | `object` | `{}` | 用于存放各工具扩展的独立配置。 |
 | `advanced.maxRetry`| number| `3`| 工具执行失败最大重试次数。 |
-| `advanced.retryDelayMs`| number| `1000`| 重试延迟时间(毫秒)。 |
-| `advanced.timeoutMs`| number| `10000`| 工具执行超时时间(毫秒)。 |
-| `advanced.hotReload`| boolean| `false`| (开发用) 是否启用工具热重载。|
-| `advanced.validateTypes`| boolean| `true`| 是否验证工具参数类型。|
+| `advanced.retryDelay`| number| `1000`| 重试延迟时间(毫秒)。 |
+| `advanced.timeout`| number| `10000`| 工具执行超时时间(毫秒)。 |
 
 ### `HistoryConfig`
 | 键 | 类型 | 默认值 | 描述 |
 |---|---|---|---|
-| `enableSummarization`| boolean| `true` | 是否启用对话历史自动总结功能。 |
-| `summarizationPrompt`| string| (默认模板) | 用于生成对话摘要的提示词。 |
+| `summarization.enabled`| boolean| `true` | 是否启用对话历史自动总结功能。 |
+| `summarization.prompt`| string| (默认模板) | 用于生成对话摘要的提示词。 |
+| `summarization.triggerCount`| number| `6` | 累计多少片段后触发一次总结。 |
+| `summarization.minTriggerMessages`| number| `50` | 单次最少压缩的消息数量。 |
 | `fullContextSegmentCount`| number| `2` | 保留的最新“完整”对话片段数。 |
-| `summarizationTriggerCount`| number| `6` | 累计多少片段后触发一次总结。 |
-| `advanced.maxHistoryItemsPerChannel`| number | `15`| 每个频道最大历史项目数。 |
-| `advanced.maxMessages`| number| `30`| 上下文最大消息数。 |
-| `advanced.dataRetentionDays`| number| `30`| 历史数据在数据库中保留天数。 |
-| `advanced.cleanupIntervalMs`| number| `60000`| 后台清理任务频率(毫秒)。 |
+| `maxMessages`| number| `30`| 上下文最大消息数。 |
+| `inactivityTimeoutSec`| number| `1800`| 片段在多长时间内没有新消息后被关闭（秒）。 |
+| `recall.private`| number| `3`| 私聊场景下召回用户画像的数量。 |
+| `recall.guild`| number| `8`| 群组场景下召回用户画像的数量。 |
+| `recall.minConfidence`| number| `0.5`| 最低置信度。 |
+| `dataRetentionDays`| number| `30`| 历史数据在数据库中保留天数。 |
+| `cleanupIntervalSec`| number| `60`| 后台清理任务频率(秒)。 |
 
 ---
 
-## `imageService`
-图片服务配置。
+## `assetService`
+资源服务配置。
 
 | 键 | 类型 | 默认值 | 描述 |
 |---|---|---|---|
-| `storagePath` | string | `data/yesimbot/images` | 图片本地存储路径。 |
+| `storagePath` | string | `data/assets` | 资源本地存储路径。 |
+| `driver` | string | `local` | 存储驱动类型。目前仅支持本地存储。 |
+| `autoClearEnabled` | boolean | `true` | 是否启用自动清理过期资源的功能。 |
+| `autoClearIntervalHours` | number | `24` | 自动清理任务的执行周期（单位：小时）。 |
+| `maxAssetAgeDays` | number | `30` | 资源最长保留天数（根据最后使用时间判断）。 |
+| `endpoint` | string | - | 公开访问端点 URL (可选)。配置后，资源将通过此 URL 对外提供。 |
 
 ---
 
