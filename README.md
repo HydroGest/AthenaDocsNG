@@ -1,2 +1,2 @@
 # AthenaDocsNG
-Athena ([YesImbot](https://github.com/Hydrogest/Yesimbot)) 的文档站。
+Athena ([YesImbot](https://github.com/YesWeAreBot/YesImBot)) 的文档站。

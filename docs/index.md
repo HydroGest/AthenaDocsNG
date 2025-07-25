@@ -26,8 +26,8 @@ YesImBot 是一个为 [Koishi](https://koishi.chat/) 框架设计的、高度可
 
 ## 项目信息
 
--   **当前版本:** 3.0.0-beta.3
--   **项目主页:** [GitHub - HydroGest/YesImBot](https://github.com/HydroGest/YesImBot)
+-   **当前版本:** 3.0.0-beta.4
+-   **项目主页:** [GitHub - YesWeAreBot/YesImBot](https://github.com/YesWeAreBot/YesImBot)
 -   **许可证:** MIT
 
 !!! tip "开始您的旅程"

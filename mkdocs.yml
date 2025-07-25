@@ -4,8 +4,8 @@ site_description: 让语言大模型机器人激活灵魂的 Koishi 插件
 site_url: https://docs.yesimbot.chat/
 
 # 文档仓库
-repo_name: HydroGest/AthenaDocsNG
-repo_url: https://github.com/HydroGest/AthenaDocsNG
+repo_name: YesWeAreBot/AthenaDocsNG
+repo_url: https://github.com/YesWeAreBot/AthenaDocsNG
 edit_uri: edit/main/docs/
 
 # 导航结构
@@ -112,4 +112,4 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/HydroGest/YesImBot
+      link: https://github.com/YesWeAreBot/YesImBot
